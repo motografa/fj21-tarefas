@@ -16,7 +16,7 @@ public class ConnectionFactory {
 			return conn;		
 		}catch(SQLException e){
 			e.printStackTrace();
-			throw new RuntimeException(e+"\nNAO FOI POSSIVEL CONECTAR NO BANCO DE DADOS");
+			throw new RuntimeException(e+"\nNAO FOI POSSÍVEL CONECTAR NO BANCO DE DADOS");
 		}
 	}
 }

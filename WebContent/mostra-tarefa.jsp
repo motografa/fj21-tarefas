@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<h3>Alterar Tarefa - ${tarefa.id}</h3>
-		<form action="alteraTarefa" method="post">
+		<form action="alteraTarefaANTIGO" method="post">
 			<input type="hidden" name="tarefa.id" value="${tarefa.id}"/>
 			
 			Descrição: <br/>
