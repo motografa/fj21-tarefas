@@ -1,10 +1,5 @@
 package br.com.caelum.tarefas.controller;
 
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -68,4 +63,6 @@ public class TarefasController {
 	model.addAttribute("tarefa", dao.buscaPorId(id));
 	return "tarefa/finalizada";
 	}
+	
+
 }

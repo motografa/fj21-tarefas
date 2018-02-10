@@ -22,12 +22,11 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<bean id="messageSource"
-		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-		<property name="basename" value="/WEB-INF/mensagens" />
-	</bean>
-
 	<mvc:default-servlet-handler />
+
+	<mvc:interceptors>
+		<bean class="br.com.caelum.tarefas.interceptor.AutorizadorInterceptor" />
+	</mvc:interceptors>
 
 </beans>
 

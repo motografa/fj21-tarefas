@@ -1,32 +1,26 @@
 package br.com.caelum.tarefas.interceptor;
 
-import br.com.caelum.tarefas.modelo.Usuario;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import com.opensymphony.xwork2.ActionInvocation;
-import com.opensymphony.xwork2.interceptor.Interceptor;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-public class AutorizadorInterceptor implements Interceptor{
+public class AutorizadorInterceptor extends HandlerInterceptorAdapter{
 	
-	public String intercept(ActionInvocation invocation) throws Exception{
-		Usuario usuarioLogado = (Usuario)invocation.getInvocationContext().
-				getSession().get("usuarioLogado");
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		String uri = request.getRequestURI();
 		
-		if(usuarioLogado == null){
-			return "naoLogado";
+		if (uri.endsWith("loginForm") || uri.endsWith("efetuaLogin") || uri.contains("resources")) {
+			return true;
 		}
-		return invocation.invoke();
-	}
-
-	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public void init() {
-		// TODO Auto-generated method stub
+		if (request.getSession().getAttribute("usuarioLogado") != null) {
+			return true;		
+		}
 		
+		response.sendRedirect("loginForm");
+		return false;
 	}
-
 }
