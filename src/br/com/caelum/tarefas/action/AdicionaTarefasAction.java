@@ -14,7 +14,7 @@ public class AdicionaTarefasAction {
 	})
 	
 	public String execute(){
-		new TarefaDAO().adiciona(tarefa);
+		//new TarefaDAO().adiciona(tarefa);
 		return "ok";
 	}
 	

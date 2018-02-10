@@ -23,7 +23,7 @@ public class ListaTarefasAction {
 
 	
 	public String execute(){
-		tarefas= new TarefaDAO().lista();
+		//tarefas= new TarefaDAO().lista();
 		return "ok";
 	}
 	

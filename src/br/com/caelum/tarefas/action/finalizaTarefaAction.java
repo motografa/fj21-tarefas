@@ -13,7 +13,7 @@ public class finalizaTarefaAction {
 			@Result(name="ok", type="httpheader", params={"status", "200"})
 	})
 	public String execute(){
-		new TarefaDAO().finaliza(id);
+		//new TarefaDAO().finaliza(id);
 		return "ok";
 	}
 	public void setId(Long id){

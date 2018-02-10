@@ -2,6 +2,7 @@ package br.com.caelum.tarefas.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,6 +13,13 @@ import br.com.caelum.tarefas.modelo.Tarefa;
 
 @Controller
 public class TarefasController {
+	
+	private final TarefaDAO dao;
+	
+	@Autowired
+	public TarefasController(TarefaDAO dao) {
+		this.dao = dao;
+	}
 
 	@RequestMapping("novaTarefa")
 	public String form() {
@@ -23,42 +31,42 @@ public class TarefasController {
 		if (result.hasFieldErrors("descricao")) {
 			return "tarefa/formulario";
 		}
-		TarefaDAO dao = new TarefaDAO();
+		//TarefaDAO dao = new TarefaDAO();
 		dao.adiciona(tarefa);
 		return "tarefa/adicionada";
 	}
 
 	@RequestMapping("listaTarefas")
 	public String Lista(Model model) {
-		TarefaDAO dao = new TarefaDAO();
+		//TarefaDAO dao = new TarefaDAO();
 		model.addAttribute("tarefas", dao.lista());
 		return "tarefa/lista";
 	}
 
 	@RequestMapping("removeTarefa")
 	public String remove(Tarefa tarefa) {
-		TarefaDAO dao = new TarefaDAO();
+		//TarefaDAO dao = new TarefaDAO();
 		dao.remove(tarefa);
 		return "redirect:listaTarefas";
 	}
 
 	@RequestMapping("mostraTarefa")
 	public String mostraTarefa(Long id, Model model) {
-		TarefaDAO dao = new TarefaDAO();
+		//TarefaDAO dao = new TarefaDAO();
 		model.addAttribute("tarefa", dao.buscaPorId(id));
 		return "tarefa/mostra";
 	}
 
 	@RequestMapping("alteraTarefa")
 	public String altera(Tarefa tarefa) {
-		TarefaDAO dao = new TarefaDAO();
+		//TarefaDAO dao = new TarefaDAO();
 		dao.altera(tarefa);
 		return "redirect:listaTarefas";
 	}
 
 	@RequestMapping("finalizaTarefa")
 	public String finaliza(Long id, Model model) {
-		TarefaDAO dao = new TarefaDAO();
+		//TarefaDAO dao = new TarefaDAO();
 	dao.finaliza(id);
 	model.addAttribute("tarefa", dao.buscaPorId(id));
 	return "tarefa/finalizada";

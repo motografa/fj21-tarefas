@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link type="text/css" href="resources/css/tarefas.css" rel="stylesheet" />
 <title>Insert title here</title>
 
 <link rel="stylesheet"

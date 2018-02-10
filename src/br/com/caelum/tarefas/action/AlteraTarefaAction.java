@@ -13,7 +13,7 @@ public class AlteraTarefaAction {
 			@Result(name="ok", type="redirectAction", params={"actionName", "listaTarefas"})
 	})
 	public String execute(){
-		new TarefaDAO().altera(tarefa);
+		//new TarefaDAO().altera(tarefa);
 		return "ok";
 	}
 	

@@ -13,7 +13,7 @@ public class RemoveTarefaAction {
 			@Result(name="ok", type="redirectAction", params= {"actionName", "listaTarefas"})
 	})
 	public String execute(){
-		new TarefaDAO().remove(tarefa);
+		//new TarefaDAO().remove(tarefa);
 		return "ok";
 	}
 	

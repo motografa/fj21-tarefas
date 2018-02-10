@@ -14,7 +14,7 @@ public class MostraTarefaAction {
 			@Result(name="ok", location="/mostra-tarefa.jsp")
 	})
 	public String execute(){
-		tarefa = new TarefaDAO().buscaPorId(id);
+		//tarefa = new TarefaDAO().buscaPorId(id);
 		return "ok";
 	}
 	

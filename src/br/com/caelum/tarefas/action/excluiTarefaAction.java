@@ -14,8 +14,8 @@ public class excluiTarefaAction {
 			@Result(name="ok", type="httpheader", params={"status", "200"})
 	})
 	public String execute(){
-		Tarefa exc = new TarefaDAO().buscaPorId(id);
-		new TarefaDAO().remove(exc);
+		//Tarefa exc = new TarefaDAO().buscaPorId(id);
+		//new TarefaDAO().remove(exc);
 		return "ok";
 	}
 	public void setId(Long id){
